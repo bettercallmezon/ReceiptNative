@@ -5,21 +5,20 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
-import android.os.Environment;
+import android.app.Activity;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private EditText businessNameInput;
     private EditText totalAmountInput;
@@ -41,15 +40,15 @@ public class MainActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
         businessNameInput.setHint("Business Name");
-        businessNameInput.setInputType(android.text.InputType.TYPE_CLASS_TEXT);
+        businessNameInput.setInputType(EditorInfo.TYPE_CLASS_TEXT);
 
         totalAmountInput = new EditText(this);
         totalAmountInput.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
         totalAmountInput.setHint("Total Amount ($)");
-        totalAmountInput.setInputType(android.text.InputType.TYPE_CLASS_NUMBER
-                | android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        totalAmountInput.setInputType(EditorInfo.TYPE_CLASS_NUMBER
+                | EditorInfo.TYPE_NUMBER_FLAG_DECIMAL);
 
         Button generateButton = new Button(this);
         generateButton.setLayoutParams(new LinearLayout.LayoutParams(
